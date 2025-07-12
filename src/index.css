@@ -1,5 +1,5 @@
-
-*  {
+/* ========== Base Reset & Globals ========== */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,63 +15,71 @@ body {
   font-family: 'Noto Sans', sans-serif;
   line-height: 1.5;
   font-weight: 400;
-
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
-  background-color: var(--color-bg);
-  color: var(--color-text);
+  background: var(--background-primary);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: var(--text-light);
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
-:root {
-  --gradient-light: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
-  --gradient-dark: linear-gradient(180deg, #040918 0%, #091540 100%);
-
-  /* Neutral */
-  --color-neutral-900: hsl(227, 75%, 14%);
-  --color-neutral-800: hsl(226, 25%, 17%);
-  --color-neutral-700: hsl(225, 23%, 24%);
-  --color-neutral-600: hsl(226, 11%, 37%);
-  --color-neutral-300: hsl(0, 0%, 78%);
-  --color-neutral-200: hsl(217, 61%, 90%);
-  --color-neutral-100: hsl(0, 0%, 93%);
-  --color-neutral-0: hsl(200, 60%, 99%);
-
-  /* Red */
-  --color-red-400: hsl(3, 86%, 64%);
-  --color-red-500: hsl(3, 71%, 56%);
-  --color-red-700: hsl(3, 77%, 44%);
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-bold);
 }
 
+/* ========== Variables ========== */
+:root {
+  --neutral-50: hsl(200, 60%, 99%);
+  --neutral-100: hsl(0, 0%, 93%);
+  --neutral-200: hsl(217, 61%, 90%);
+  --neutral-300: hsl(0, 0%, 78%);
+  --neutral-600: hsl(226, 11%, 37%);
+  --neutral-700: hsl(225, 23%, 24%);
+  --neutral-800: hsl(226, 25%, 17%);
+  --neutral-900: hsl(227, 75%, 14%);
+
+  --red-400: hsl(3, 86%, 64%);
+  --red-500: hsl(3, 71%, 56%);
+  --red-700: hsl(3, 77%, 44%);
+
+  --gradient-light: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
+  --gradient-dark: linear-gradient(180deg, #040918 0%, #091540 100%);
+}
+
+/* ========== Theme Modes ========== */
 body.light {
   color-scheme: light;
-
-  --color-bg: var(--color-neutral-0);            /* hsl(200, 60%, 99%) */
-  --color-text: var(--color-neutral-900);        /* hsl(227, 75%, 14%) */
-  --color-subtle: var(--color-neutral-600);      /* hsl(226, 11%, 37%) */
-  --color-border: var(--color-neutral-200);      /* hsl(217, 61%, 90%) */
-  --color-surface: var(--color-neutral-100);     /* hsl(0, 0%, 93%) */
-
-  --color-danger: var(--color-red-500);          /* hsl(3, 71%, 56%) */
-  --color-danger-hover: var(--color-red-700);    /* hsl(3, 77%, 44%) */
+  --background-primary: var(--gradient-light);
+  --header-background: var(--neutral-50);
+  --button-background: var(--neutral-100);
+  --pill-background: var(--neutral-50);
+  --text-bold: var(--neutral-900);
+  --text-medium: var(--neutral-700);
+  --text-light: var(--neutral-600);
+  --card-bg: var(--neutral-50);
+  --card-shadow: rgba(0, 0, 0, 0.1);
+  --card-hover-shadow: rgba(0, 0, 0, 0.15);
 }
 
 body.dark {
   color-scheme: dark;
-
-  --color-bg: var(--color-neutral-900);
-  --color-text: var(--color-neutral-0);          /* hsl(200, 60%, 99%) */
-  --color-subtle: var(--color-neutral-300);      /* hsl(0, 0%, 78%) */
-  --color-border: var(--color-neutral-700);      /* hsl(225, 23%, 24%) */
-  --color-surface: var(--color-neutral-800);     /* hsl(226, 25%, 17%) */
-
-  --color-danger: var(--color-red-400);          /* hsl(3, 86%, 64%) */
-  --color-danger-hover: var(--color-red-500);    /* hsl(3, 71%, 56%) */
+  --background-primary: var(--gradient-dark);
+  --header-background: var(--neutral-700);
+  --button-background: var(--neutral-600);
+  --pill-background: var(--neutral-600);
+  --text-bold: var(--neutral-50);
+  --text-medium: var(--neutral-200);
+  --text-light: var(--neutral-300);
+  --card-bg: var(--neutral-800);
+  --card-shadow: rgba(0, 0, 0, 0.2);
+  --card-hover-shadow: rgba(0, 0, 0, 0.25);
 }
 
+/* ========== Fonts ========== */
 @font-face {
   font-family: 'Noto Sans';
   src: url('fonts/NotoSans-Regular.woff2') format('woff2'),
@@ -80,7 +88,6 @@ body.dark {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Noto Sans';
   src: url('fonts/NotoSans-Medium.woff2') format('woff2'),
@@ -89,7 +96,6 @@ body.dark {
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: 'Noto Sans';
   src: url('fonts/NotoSans-Bold.woff2') format('woff2'),
@@ -99,24 +105,213 @@ body.dark {
   font-display: swap;
 }
 
-
-
-@media (prefers-color-scheme: light) {
-  body.light {
-    color-scheme: light;
-  }
+/* ========== Layout ========== */
+.app {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  body.dark {
-    color-scheme: dark;
-  }
+/* ========== Navbar ========== */
+.navbar {
+  background: var(--header-background);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.95rem;
 }
 
+.navbar-logo {
+  display: flex;
+  align-items: center;
+}
+
+/* ========== Buttons ========== */
+button {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  background-color: var(--neutral-300);
+}
+
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--red-500);
+}
+
+.theme-btn {
+  background-color: var(--button-background);
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+}
+
+.pill {
+  background-color: var(--pill-background);
+  border-radius: 9999px;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.pill.active {
+  background-color: var(--red-500);
+  color: var(--neutral-50);
+}
+
+/* ========== Toggle ========== */
+.toggle-button-outer {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 28px;
+}
+
+.toggle-button-outer input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-button-outer .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--neutral-300);
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.toggle-button-outer .slider::before {
+  content: "";
+  position: absolute;
+  width: 22px;
+  height: 22px;
+  left: 3px;
+  bottom: 3px;
+  background: #fff;
+  border-radius: 50%;
+  transition: transform 0.2s ease;
+}
+
+.toggle-button-outer input:checked + .slider {
+  background: var(--red-500);
+}
+
+.toggle-button-outer input:checked + .slider::before {
+  transform: translateX(22px);
+}
+
+.toggle-button-outer input:focus + .slider {
+  box-shadow: 0 0 0 2px var(--red-500);
+}
+
+/* ========== Extension Section ========== */
+.extension-container {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.extension-container .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.extension-container .header h2 {
+  font-size: 1.75rem;
+}
+
+.extension-container .header-actions {
+  display: flex;
+  gap: 1rem;
+}
+
+/* ========== Cards ========== */
+.extension-container-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1rem;
+  background: var(--card-bg);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px var(--card-shadow);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 8px var(--card-hover-shadow);
+}
+
+.card-body {
+  display: flex;
+  gap: 1rem;
+}
+
+.card-content {
+  flex: 1;
+}
+
+.card-content h3 {
+  font-size: 1.25rem;
+  color: var(--text-bold);
+}
+
+.card-content p {
+  margin-top: 0.5rem;
+  color: var(--text-medium);
+}
+
+.card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.card-footer button {
+  background: transparent;
+  border: 1px solid var(--neutral-300);
+}
+
+.card-footer button:hover {
+  background: var(--red-500);
+  color: var(--neutral-50);
+}
+
+/* ========== Responsive: Tablet+ ========== */
 @media (min-width: 768px) {
-  /* Tablet layout if needed */
+  .extension-container .header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .extension-container .header h2 {
+    font-size: 2rem;
+  }
 }
 
-@media (min-width: 1440px) {
-  /* Desktop layout styles */
-}
+  

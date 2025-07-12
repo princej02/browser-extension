@@ -1,69 +1,54 @@
-# React + TypeScript + Vite
+# Extensions UI Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive UI dashboard for managing browser extensions, built with [React](https://react.dev/) and [TypeScript](https://www.typescriptlang.org/). The project demonstrates best practices in component-based architecture, theming (light/dark mode), and state management.
 
-Currently, two official plugins are available:
+**Live Demo:** [https://browser-extension-sco.pages.dev/](https://browser-extension-sco.pages.dev/)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- **Extension List:** Displays a grid of browser extensions with logo, description, and status.
+- **Filtering:** Filter extensions by All, Active, or Inactive.
+- **Theme Toggle:** Switch between light and dark themes, with preference saved to localStorage.
+- **Responsive Design:** Adapts to mobile and desktop layouts.
+- **Accessible:** Keyboard navigable and uses semantic HTML.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Tools & Libraries
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **[React 19](https://react.dev/):** UI library for building interactive interfaces.
+- **[TypeScript](https://www.typescriptlang.org/):** Static typing for safer code.
+- **[Vite](https://vitejs.dev/):** Fast development server and build tool.
+- **[Bun](https://bun.sh/):** All-in-one JavaScript runtime for running, building, and testing.
+- **[ESLint](https://eslint.org/):** Linting for code quality.
+- **[Noto Sans](https://fonts.google.com/noto/specimen/Noto+Sans):** Clean, modern font for UI.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. **Install dependencies:**
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+   ```sh
+   bun install
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. **Run the development server:**
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+   ```sh
+   bun run dev
+   ```
+
+3. **Build for production:**
+
+   ```sh
+   bun run build
+   ```
+
+4. **Preview production build:**
+
+   ```sh
+   bun run preview
+   ```
+
+## License
+
+MIT License
+
+Copyright (c) 2025

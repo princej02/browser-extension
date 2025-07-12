@@ -1,13 +1,14 @@
 import { useTheme } from "../hooks/useTheme"
+import Sun from '../icons/icon-sun.svg'
+import Moon from '../icons/icon-moon.svg'
 
 const ThemeToggle = () => {
 
   const { theme, toggleTheme } = useTheme();
 
   return (
-    <button onClick={toggleTheme}>
-      Switch to {theme === "light" ? "Dark" : "Light"} Mode
-      <span className="sr-only">Toggle theme</span>
+    <button onClick={toggleTheme} className="toggle theme-btn">
+      {theme === 'light' ? <img src={Moon} alt="dark"/> : <img src={Sun} alt="light"/>}
     </button>
   )
 }
